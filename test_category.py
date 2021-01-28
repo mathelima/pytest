@@ -20,6 +20,13 @@ def test_validate_name_type() -> None:
         assert isinstance(e, TypeError)
 
 
+def test_validate_name_size() -> None:
+    try:
+        category = Category(name*100, description)
+    except Exception as e:
+        assert isinstance(e, ValueError)
+
+
 def test_validate_nullable_name():
     try:
         category = Category('', description)
@@ -32,3 +39,10 @@ def test_validate_description_type() -> None:
         category = Category(name, 1)
     except Exception as e:
         assert isinstance(e, TypeError)
+
+
+def test_validate_description_size() -> None:
+    try:
+        category = Category(name, description * 100)
+    except Exception as e:
+        assert isinstance(e, ValueError)
