@@ -1,7 +1,7 @@
 from sqlalchemy import Column, VARCHAR
 from sqlalchemy.orm import validates
 
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 
 class Category(BaseModel):
